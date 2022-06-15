@@ -52,20 +52,35 @@ const Formdata = () => (
           bodyFormData.append("mobile", values.mobile);
           bodyFormData.append("password", values.password);
           bodyFormData.append("referral_code", "");
-          Axios({
-            method: "post",
-            url: "https://urlsdemo.in/mangtum/panel/api/v1.0/signup",
-            data: bodyFormData,
-            headers: { "Content-Type": "multipart/form-data" },
-          })
-            .then(function (response) {
-              //handle success
-              console.log(response);
-            })
-            .catch(function (response) {
-              //handle error
-              console.log(response);
-            });
+          // Axios({
+          //   method: "post",
+          //   url: "https://urlsdemo.in/mangtum/panel/api/v1.0/signup",
+          //   data: bodyFormData,
+          // headers: {
+          //   Accept: "application/json",
+          //   Authorization: `Bearer `,
+          // },
+          // })
+          //   .then(function (response) {
+          //     //handle success
+          //     console.log(response);
+          //   })
+          //   .catch(function (response) {
+          //     //handle error
+          //     console.log(response);
+          //   });
+          Axios.post(
+            "https://urlsdemo.in/mangtum/panel/api/v1.0/signup",
+            bodyFormData,
+            {
+              headers: {
+                Accept: "application/json",
+                Authorization: `Bearer `,
+              },
+            }
+          ).then((res) => {
+            console.log(res);
+          });
         }}
       >
         {({ errors, touched }) => (
