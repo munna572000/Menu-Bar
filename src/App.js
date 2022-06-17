@@ -1,9 +1,10 @@
 import React from "react";
+// import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import Home from "./Home";
 import Contact from "./Contact";
 import About from "./About";
 import Formdata from "./Formdata";
-import Navbar from "./Navbar";
+import BasicExample from "./BasicExample";
 import LoginForm from "./LoginForm";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
@@ -11,7 +12,7 @@ function App() {
   return (
     <>
       <BrowserRouter>
-        <Navbar />
+        <BasicExample />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route exact path="/contact" element={<Contact />} />
