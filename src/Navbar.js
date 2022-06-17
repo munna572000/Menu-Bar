@@ -12,6 +12,7 @@ function BasicExample() {
   const isLogin = localStorage.getItem("user_id");
   //Show user name after signin
   const userName_gdg = localStorage.getItem("user_username");
+  
 
   //logout function create:
   const logOut = () => {
@@ -26,21 +27,31 @@ function BasicExample() {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
-            <Nav.Link href="/">
-              <Link to="/">Home</Link>
-            </Nav.Link>
-            <Nav.Link to="/about">
-              <Link to="" className="text-decoration-none text-primary">
-                about
+            <Nav.Link>
+              <Link to="/" className="text-decoration-none text-primary">
+                LiveNews
               </Link>
             </Nav.Link>
-            <Nav.Link to="contact">
-              <Link to="/contact">contact</Link>
+            <Nav.Link>
+              <Link to="/about" className="text-decoration-none text-primary">
+                Image Search
+              </Link>
             </Nav.Link>
-            <Nav.Link href="#formdata">
-              <Link to="/formdata">SignUp</Link>
+            <Nav.Link>
+              <Link to="/contact" className="text-decoration-none text-primary">
+                {" "}
+                contact
+              </Link>
             </Nav.Link>
-            <Nav.Link href="#loginform">
+            <Nav.Link>
+              <Link
+                to="/formdata"
+                className="text-decoration-none text-primary"
+              >
+                SignUp
+              </Link>
+            </Nav.Link>
+            <Nav.Link>
               {!isLogin ? (
                 <Link to="/loginform">Signin</Link>
               ) : (
