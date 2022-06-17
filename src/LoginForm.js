@@ -20,23 +20,6 @@ function LoginForm() {
 
     bodyFormData.append("password", values.password);
 
-    // Axios({
-    //   method: "post",
-    //   url: "https://urlsdemo.in/mangtum/panel/api/v1.0/login",
-    //   data: bodyFormData,
-    //   headers: {
-    //     Accept: "application/json",
-    //     Authorization: `Bearer `,
-    //   },
-    // })
-    //   .then(function (response) {
-    //     //handle success
-    //     console.log(response);
-    //   })
-    //   .catch(function (response) {
-    //     //handle error
-    //     console.log(response);
-    //   });
     Axios.post(
       "https://urlsdemo.in/mangtum/panel/api/v1.0/login",
       bodyFormData,
@@ -50,6 +33,7 @@ function LoginForm() {
       console.log(res?.data?.data?.ID);
       localStorage.setItem("user_id", res?.data?.data?.ID);
       localStorage.setItem("user_username", res?.data?.data?.username);
+      localStorage.setItem("token", res?.data?.data?.token);
     });
   };
   return (
