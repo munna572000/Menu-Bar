@@ -13,7 +13,7 @@ function LoginForm() {
   });
   const onSubmit = (values, { resetForm }) => {
     resetForm({ values: "" });
-    console.log("Form data", values);
+
     var bodyFormData = new FormData();
 
     bodyFormData.append("email", values.email);
@@ -47,7 +47,9 @@ function LoginForm() {
         },
       }
     ).then((res) => {
-      console.log(res);
+      console.log(res?.data?.data?.ID);
+      localStorage.setItem("user_id", res?.data?.data?.ID);
+      localStorage.setItem("user_username", res?.data?.data?.username);
     });
   };
   return (
