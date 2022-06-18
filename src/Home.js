@@ -41,3 +41,65 @@ function Home() {
 }
 
 export default Home;
+
+import axios from "axios";
+import React, { useState, useEffect } from "react";
+
+function Home() {
+  const [user, setUser] = useState([]);
+  const Munna = (val) => {
+    alert(val);
+    // <h1>{value.name}</h1>;
+  };
+
+  useEffect(() => {
+    axios
+      .get("https://www.eliquidremix.com/panel/api/home-page")
+      .then((res) => {
+        console.log(res);
+        // console.log(res?.data?.data?.welcome_images[0]);
+        // console.log(res?.data?.data);
+        setUser(res?.data?.data?.welcome_images);
+      });
+  }, []);
+
+  return (
+    <>
+      <div className="col-4">
+        <div className="container">
+          <div className="row">
+            {user.map((value, index) => {
+              return (
+                <div key={index} className="col-4">
+                  <div className="card">
+                    <div className="card-body">
+                      <div className="card-image">
+                        <img
+                          onClick={() => Munna(value.name)}
+                          src={value.img}
+                          alt="..."
+                        />
+
+                        {/* <div className="card-title">
+                          <h1>{value.name}</h1>
+                        </div> */}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              );
+            })}
+
+            <img
+              src="https://www.eliquidremix.com/panel/assets/img/flavour/tag/5ef4ace5708c8cfdad77bc09ecd2ccf5.jpg"
+              alt="..."
+            />
+          </div>
+        </div>
+      </div>
+    </>
+  );
+}
+
+export default Home;
+
